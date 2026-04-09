@@ -1,0 +1,29 @@
+services:
+  mysql-db:
+    image: mysql:latest
+    container_name: employee_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: EmployeeDB
+      MYSQL_USER: api_user
+      MYSQL_PASSWORD: apipassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: employee_phpmyadmin
+    environment:
+      PMA_HOST: mysql-db
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql-db
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
