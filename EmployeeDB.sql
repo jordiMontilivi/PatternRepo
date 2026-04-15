@@ -1,6 +1,6 @@
 -- Creació de la base de dades
-CREATE DATABASE IF NOT EXISTS EmployeeRepoDB;
-USE EmployeeRepoDB;
+CREATE DATABASE IF NOT EXISTS EmployeeDB;
+USE EmployeeDB;
 
 -- Creació de la taula
 CREATE TABLE IF NOT EXISTS Employees (
